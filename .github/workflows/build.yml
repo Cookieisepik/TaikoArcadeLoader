@@ -1,4 +1,3 @@
-```yaml
 name: Build and upload artifact
 
 on:
@@ -22,12 +21,9 @@ jobs:
                   cmake -B build -S . -G "NMake Makefiles" ^
                     -DCMAKE_BUILD_TYPE=Release ^
                     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-
-            # AI-GENERATED: added to fix dist/ not existing
             - name: Create dist directory
               shell: cmd
               run: mkdir dist
-
             - name: Build
               shell: cmd
               run: cmake --build build --config Release --target bnusio
@@ -36,15 +32,3 @@ jobs:
                   name: TaikoArcadeLoader
                   path: dist/
                   compression-level: 9
-```
-
-So the **only AI-generated code change** is:
-
-```yaml
-# AI-GENERATED
-- name: Create dist directory
-  shell: cmd
-  run: mkdir dist
-```
-
-Everything else is your existing workflow.
