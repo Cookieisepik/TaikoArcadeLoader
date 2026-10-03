@@ -61,7 +61,7 @@ FetchContent_MakeAvailable(zxing_cpp)
 FetchContent_Declare(
     zlib
     GIT_REPOSITORY https://github.com/madler/zlib.git
-    GIT_TAG 51b7f2abdade11cd9bb0e7a373ef2610ec6f9daf
+    GIT_TAG 51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf
 )
 FetchContent_MakeAvailable(zlib)
 
@@ -206,7 +206,6 @@ endif()
 
 add_custom_command(
     TARGET bnusio POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_SOURCE_DIR}/dist"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/bnusio.dll"
         "${CMAKE_SOURCE_DIR}/dist/bnusio.dll"
