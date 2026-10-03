@@ -1,3 +1,4 @@
+```yaml
 name: Build and upload artifact
 
 on:
@@ -27,7 +28,12 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release ^
             -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
-      - name: Build
+      - name: Create dist directory
+        shell: cmd
+        run: |
+          if not exist dist mkdir dist
+
+      - name: Build bnusio
         shell: cmd
         run: |
           cmake --build build --target bnusio
@@ -38,3 +44,4 @@ jobs:
           name: TaikoArcadeLoader
           path: dist/
           compression-level: 9
+```
