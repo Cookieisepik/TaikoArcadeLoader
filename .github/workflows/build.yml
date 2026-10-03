@@ -20,16 +20,12 @@ jobs:
         with:
           arch: x64
 
-      - name: Check MSVC
-        shell: cmd
-        run: |
-          where cl
-          cl
-
       - name: Configure CMake
         shell: cmd
         run: |
-          cmake -B build -S . -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
+          cmake -B build -S . -G "NMake Makefiles" ^
+            -DCMAKE_BUILD_TYPE=Release ^
+            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
       - name: Build
         shell: cmd
