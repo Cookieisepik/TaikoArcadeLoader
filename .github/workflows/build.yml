@@ -1,4 +1,3 @@
-```yaml
 name: Build and upload artifact
 
 on:
@@ -22,7 +21,7 @@ jobs:
         with:
           arch: x64
 
-      - name: Install CMake 3.31
+      - name: Install CMake
         uses: lukka/get-cmake@latest
         with:
           cmakeVersion: 3.31.10
@@ -56,4 +55,3 @@ jobs:
           name: TaikoArcadeLoader
           path: dist/
           compression-level: 9
-```
